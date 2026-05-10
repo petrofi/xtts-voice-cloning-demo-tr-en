@@ -15,15 +15,6 @@ An English version is included below.
 - **Web Demo**: `web_demo.html` üzerinden tek sayfalık arayüz
 - **Basit cache**: Aynı istekleri hızlandırmak için LRU cache
 
-### Demo Görseli / GIF
-Bu repo, FastAPI üzerinde çalışan web demo arayüzü içerir.
-
-Görsel eklemek için:
-- `assets/demo.png` (önerilir) veya
-- `assets/demo.gif`
-
-Ardından aşağıdaki link otomatik çalışır:
-
 ![Demo Screenshot](assets/demo.png)
 
 ### Proje Yapısı
@@ -109,13 +100,6 @@ Bu proje **MIT License** ile lisanslanacaktır. Detaylar için `LICENSE` dosyas�
 
 ### Overview
 An open-source **TR/EN voice cloning (speaker conditioning) + TTS** demo built with **FastAPI** and an XTTS-based backend. It is designed to be easy to understand, run, and extend.
-
-### Demo Screenshot / GIF
-Add one of these files:
-- `assets/demo.png` (recommended) or
-- `assets/demo.gif`
-
-Then this link will render automatically:
 
 ![Demo Screenshot](assets/demo.png)
 
