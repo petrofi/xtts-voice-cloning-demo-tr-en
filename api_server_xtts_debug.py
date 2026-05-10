@@ -4,10 +4,10 @@
 import io
 import os
 import traceback
-from typing import Any, Dict, Tuple
+from typing import Any
 
 import numpy as np
-from fastapi import Body, FastAPI, HTTPException, Query, Request
+from fastapi import Body, FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
