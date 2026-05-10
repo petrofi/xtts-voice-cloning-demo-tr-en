@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - TTS_GPU=false
+      - TTS_PROGRESS_BAR=false
+      - TTS_CACHE_SIZE=32
+      - TTS_DEFAULT_LANGUAGE=tr
+      - TTS_DEFAULT_SPEAKER_WAV=data/wavs/trk_0001.wav
+    volumes:
+      - ./data:/app/data

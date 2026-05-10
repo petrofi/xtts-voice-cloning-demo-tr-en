@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TTS Demo (XTTS API)</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 40px; }
+    .card { max-width: 720px; margin: auto; padding: 24px; border: 1px solid #ddd; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    label { display:block; margin: 12px 0 6px; font-weight: 600; }
+    input[type=text], textarea, select { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; }
+    button { padding: 12px 16px; border: none; border-radius: 10px; background: #111827; color: white; cursor: pointer; margin-top: 12px; }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    .row { display:flex; gap:12px; }
+    .row > * { flex:1; }
+    audio { width: 100%; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Türkçe TTS Demo (XTTS API)</h2>
+    <label for="text">Metin</label>
+    <textarea id="text" rows="4">Merhaba! Bu bir deneme cümlesidir.</textarea>
+    <div class="row">
+      <div>
+        <label for="speaker">Speaker WAV</label>
+        <input id="speaker" type="text" value="data/wavs/trk_0001.wav" />
+      </div>
+      <div>
+        <label for="lang">Dil</label>
+        <select id="lang">
+          <option value="tr" selected>tr</option>
+          <option value="en">en</option>
+        </select>
+      </div>
+    </div>
+    <button id="btn">Sentezle</button>
+    <audio id="player" controls></audio>
+  </div>
+
+  <script>
+    const btn = document.getElementById('btn');
+    const player = document.getElementById('player');
+    btn.addEventListener('click', async () => {
+      const text = document.getElementById('text').value;
+      const speaker = document.getElementById('speaker').value;
+      const language = document.getElementById('lang').value;
+      btn.disabled = true; btn.textContent = 'Üretiliyor...';
+      try {
+        const res = await fetch('/synthesize', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({text, speaker, language})
+        });
+        if (!res.ok) throw new Error('API hatası');
+        const blob = await res.blob();
+        player.src = URL.createObjectURL(blob);
+        player.play();
+      } catch (e) {
+        alert('Hata: ' + e.message);
+      } finally {
+        btn.disabled = false; btn.textContent = 'Sentezle';
+      }
+    });
+  </script>
+</body>
+</html>

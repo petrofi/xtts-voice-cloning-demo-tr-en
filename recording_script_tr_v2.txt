@@ -1,0 +1,80 @@
+# --- Nötr fonetik kapsama ---
+Merhaba, bugün güneş var ama hava serin.
+Hâlâ yağmur bekleniyor fakat rüzgâr hafif.
+Öğle arasında küçük bir yürüyüş yaptım.
+Kütüphane köşesinde sessizce kitap okudum.
+Şaşkın çocuk çilek reçelini çekmeceye koydu.
+Çiçekçi üçüncü çiçeği çabucak değiştirdi.
+Jale jurnalini düzenli olarak yazıyor.
+Soğuk öğleden sonra gölün üstü sisle kaplandı.
+Eğilmiş söğüt ağacı yola doğru sarkıyor.
+Kar, kâr ve karar kelimelerini dikkatle söylüyorum.
+Hala burada mısın, yoksa hâlâ yoldayım mı demek istedin?
+Yedi yeni yetenek yarın atölyeye katılacak.
+Bilgisayar psikoloji yazısını yeterince iyi diye önerdi.
+İstikrar sağlanırsa sonuçlar daha güvenilir olur.
+# --- Sayı, para, tarih, saat ---
+Toplam bir bin iki yüz kırk dokuz lira elli kuruş.
+KDV oranı yüzde yirmi, ara toplam sekiz yüz elli lira.
+Toplantı yirmi sekiz ağustos iki bin yirmi beş, saat on dört otuz.
+Uçuş on iki eylül iki bin yirmi beş, dokuz on beş.
+Döviz kuru bir dolar otuz üç lira kırk beş kuruş.
+Sipariş numarası te er sıfır sıfır kırk iki a.
+Telefon numarası sıfır iki yüz on iki beş yüz elli beş kırk üç yirmi bir.
+# --- Kısaltmalar ve karışık yazımlar ---
+Te ce kimlik numaranızı paylaşmayın.
+Doktor Ayşe Hanım ar ge toplantısına katılacak.
+A be ve a be de pazarları dalgalı seyretti.
+İ tee ü ve yök yönergelerine uygunuz.
+Pe de fe ve se se ve dosyaları e postayla gönderildi.
+Adres url si örnek nokta kom eğik destek.
+Kullanıcı adı ayse alt çizgi ke, geçici şifre ke dokuz eks dört te ku.
+Sunucu adı te er e u ist sıfır bir olarak güncellendi.
+# --- Özel adlar ve yabancı kelimeler ---
+Bugün OpenAI ve GitHub hakkında kısa bir sunum yapacağım.
+Projede React ve TypeScript kullanıyoruz.
+Filmin adı La La Land, yönetmeni Damien Chazelle.
+İstanbul Ankara hızlı treninde wifi bazen kesiliyor.
+Podcast bölümünde meşin lırnınk terimini sade anlattım.
+# --- Duygu ve stil ---
+Merhaba! Nasıl yardımcı olabilirim?
+Harika bir haberim var!
+Lütfen kullanıcı sözleşmesini dikkatle okuyun.
+Üzgünüm, beklenmeyen bir hata oluştu.
+Birazdan tekrar deneyeceğim.
+Şimdi derin bir nefes alın ve rahatlayın.
+# --- Komut, soru, uyarı, onay ---
+Lütfen devam etmeden önce kimliğinizi doğrulayın.
+Bu adımı atlamak istediğinizden emin misiniz?
+Harika, ayarlar başarıyla kaydedildi.
+Dikkat, bu işlem geri alınamaz.
+Tamam, şimdi sıradaki örneğe geçelim.
+Gerçekten kapatmak istiyor musunuz?
+# --- Diyalog ritmi ---
+Siparişimi nasıl iade ederim?
+İade süreci çok basit, bağlantıyı az sonra gönderiyorum.
+Kargom gecikti.
+Kontrol ediyorum; bugün dağıtıma çıkmış.
+Aboneliğimi iptal etmek istiyorum.
+Elbette, birkaç soruyla yardımcı olabilirim.
+Şifremi unuttum.
+E posta adresinizi paylaşırsanız sıfırlama bağlantısı ileteyim.
+# --- Uzun cümle ve nefes ---
+Planladığımız güncelleme hataların çoğunu sessizce düzeltecek, performansı artıracak ve kullanıcıların alıştıkları akışı bozmadan yeni özellikleri denemelerine izin verecek.
+Bir karar verirken, kısa vadeli rahatlık yerine uzun vadede esneklik ve güven sağlayacak seçeneklere öncelik veriyorum.
+Yoğun bir günün ardından, açık pencereden giren serin rüzgâr şehrin uğultusunu yumuşatırken, yapılacaklar listemdeki son maddeyi de tamamladığımı fark ettim.
+# --- Telaffuzu zor/minimal çiftler ---
+Sıra sarı sırılsıklam suların sıyrılması.
+Şu köşe yaz köşesi, şu köşe kış köşesi.
+Kırk küp kırık, kırkı da kırmızı kapaklı.
+Açık açık açıklamalar yaparak açıkları kapattık.
+# --- Uygulama içi kalıplar ---
+Giriş başarılı; ana sayfaya yönlendiriliyorsunuz.
+Bildirimleri daha sonra ayarlardan kapatabilirsiniz.
+Destek ekibi en kısa sürede sizinle iletişime geçecek.
+Yeni sürüm kullanıma hazır; şimdi yeniden başlatın.
+Aradığınız içeriği bulamadım; başka bir anahtar kelime deneyin.
+# --- Adres, e‑posta, isim ---
+Adres, Meşrutiyet Caddesi on iki daire beş, Beyoğlu, İstanbul.
+E posta destek at örnek nokta kom; konu fatura hakkında.
+Pazarlama, Analitik ve Ürün ekipleri birlikte çalışıyor.

@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint-and-smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install ruff
+
+      - name: Lint (ruff)
+        run: |
+          ruff check .
+
+      - name: Smoke test (health endpoint)
+        env:
+          TTS_GPU: "false"
+          TTS_PROGRESS_BAR: "false"
+          TTS_CACHE_SIZE: "0"
+        run: |
+          uvicorn server:app --host 127.0.0.1 --port 8000 &
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8000/health > /dev/null; then
+              echo "health ok"; exit 0;
+            fi
+            sleep 1
+          done
+          echo "health endpoint did not respond";
+          exit 1
