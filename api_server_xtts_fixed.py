@@ -9,12 +9,14 @@
 # Requirements:
 #   pip install fastapi uvicorn TTS numpy
 
-from fastapi import FastAPI, Body, Query, HTTPException
-from fastapi.responses import StreamingResponse, Response, JSONResponse, FileResponse
-from fastapi.staticfiles import StaticFiles
+import io
+import os
 from typing import Dict, Tuple
-import io, os
+
 import numpy as np
+from fastapi import Body, FastAPI, HTTPException, Query
+from fastapi.responses import FileResponse, JSONResponse, Response, StreamingResponse
+from fastapi.staticfiles import StaticFiles
 
 from TTS.api import TTS
 

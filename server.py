@@ -16,5 +16,4 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from tts_demo.api import app  # noqa: F401
-
+from tts_demo.api import app  # noqa: E402,F401
