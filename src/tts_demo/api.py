@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from collections import OrderedDict
+from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 from fastapi import Body, FastAPI, HTTPException, Query
@@ -44,11 +45,14 @@ class LruBytesCache:
 
 cfg = XttsConfig()
 cache = LruBytesCache(_cache_limit())
+ROOT_DIR = Path.cwd().resolve()
+SPEAKER_DIR = (ROOT_DIR / os.getenv("TTS_SPEAKER_DIR", "data/wavs")).resolve()
 
 app = FastAPI(title="XTTS API", version="0.1.0")
 
 if os.path.exists("web_demo.html"):
-    app.mount("/static", StaticFiles(directory=".", html=True), name="static")
+    if os.path.isdir("assets"):
+        app.mount("/assets", StaticFiles(directory="assets"), name="assets")
 
     @app.get("/")
     def home():
@@ -65,25 +69,49 @@ def health():
             "gpu": cfg.gpu,
             "default_language": cfg.default_language,
             "default_speaker_wav": cfg.default_speaker_wav,
+            "speaker_dir": str(SPEAKER_DIR),
             "cache_size": cache.max_items,
         }
     )
 
 
+def _resolve_under(base: Path, value: str) -> Path:
+    requested = Path(value or ".")
+    if not requested.is_absolute():
+        requested = ROOT_DIR / requested
+    resolved = requested.resolve()
+    if resolved != base and base not in resolved.parents:
+        raise HTTPException(400, f"path must stay under {base}")
+    return resolved
+
+
+def _resolve_speaker(value: str) -> Path:
+    speaker = _resolve_under(SPEAKER_DIR, value)
+    if speaker.suffix.lower() != ".wav":
+        raise HTTPException(400, "speaker must be a .wav file")
+    if not speaker.is_file():
+        raise HTTPException(404, f"speaker not found: {speaker}")
+    return speaker
+
+
 @app.get("/speakers")
 def speakers(dir: str = Query("data/wavs", description="Directory to scan for speaker WAVs")):
-    base = os.path.abspath(dir)
-    if not os.path.isdir(base):
+    base = _resolve_under(SPEAKER_DIR, dir)
+    if not base.is_dir():
         raise HTTPException(404, f"not a directory: {base}")
     out: List[str] = []
-    for name in sorted(os.listdir(base)):
-        if name.lower().endswith(".wav"):
-            out.append(os.path.join(dir, name).replace("\\", "/"))
+    for item in sorted(base.iterdir()):
+        if item.is_file() and item.suffix.lower() == ".wav":
+            try:
+                out.append(item.relative_to(ROOT_DIR).as_posix())
+            except ValueError:
+                out.append(item.as_posix())
     return JSONResponse({"speakers": out})
 
 
 def _synth_bytes(text: str, speaker: str, language: str) -> bytes:
-    speaker_abs = os.path.abspath(speaker)
+    speaker_path = _resolve_speaker(speaker)
+    speaker_abs = str(speaker_path)
     key = ((text or "").strip(), speaker_abs, (language or "").strip() or cfg.default_language)
     if not key[0]:
         raise ValueError("empty text")
